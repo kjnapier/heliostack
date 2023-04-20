@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: heliostack
-Version: 0.0.1
-Summary: A Python library for prototyping long-baseline shift-and-stack.
-Home-page: https://github.com/kjnapier/heliostack
-Author: Kevin J. Napier
-Author-email: kjnapier@umich.edu

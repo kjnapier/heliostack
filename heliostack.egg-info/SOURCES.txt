@@ -1,8 +1,0 @@
-README.md
-setup.py
-heliostack/image.py
-heliostack.egg-info/PKG-INFO
-heliostack.egg-info/SOURCES.txt
-heliostack.egg-info/dependency_links.txt
-heliostack.egg-info/requires.txt
-heliostack.egg-info/top_level.txt
