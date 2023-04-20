@@ -1,3 +1,2 @@
 torch>=2.0.0
 numpy
-spacerocks>=2.3.4

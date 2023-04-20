@@ -9,6 +9,5 @@ setup(
     url="https://github.com/kjnapier/heliostack",
     packages=['heliostack'],
     install_requires=['torch >= 2.0.0',
-                      'numpy',
-                      'spacerocks >= 2.3.4']
+                      'numpy']
 )
