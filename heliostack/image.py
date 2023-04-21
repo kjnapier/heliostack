@@ -13,14 +13,14 @@ class Image:
     
     def __init__(self, image: np.ndarray, weight: np.ndarray, wcs: WCS, epoch: Time, psf=None, device: torch.device = torch.device('cpu'), dtype: torch.dtype = torch.float32):
 
-        fwhm = 4
-        sigma = fwhm / (2 * np.sqrt(2 * np.log(2)))
-        # pre-convolve the image and weight with the PSF
-        image = gaussian_filter(image, sigma=sigma)
-        weight = gaussian_filter(weight, sigma=sigma)
+        # fwhm = 4
+        # sigma = fwhm / (2 * np.sqrt(2 * np.log(2)))
+        # # pre-convolve the image and weight with the PSF
+        # image = gaussian_filter(image, sigma=sigma)
+        # weight = gaussian_filter(weight, sigma=sigma)
         
-        self.image = torch.tensor(image, device=device, dtype=dtype)
-        self.weight = torch.tensor(weight, device=device, dtype=dtype)
+        self.image = torch.tensor(image.copy(), device=device, dtype=dtype)
+        self.weight = torch.tensor(weight.copy(), device=device, dtype=dtype)
         self.wcs = wcs
         self.epoch = epoch
         self.psf = psf

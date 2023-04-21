@@ -3,6 +3,7 @@ from .image import Image
 import torch
 from astropy import units as u
 from astropy.wcs import WCS
+import numpy as np
 
 class ImageSequence:
 
@@ -37,7 +38,10 @@ class ImageSequence:
         ras = ra0 + ra_rate * dts
         decs = dec0 + dec_rate * dts
 
-        xs, ys = SS_wcs.wcs_world2pix(ras * u.rad.to(u.deg), decs * u.rad.to(u.deg), 0)
+        
+
+        xys = [image.wcs.wcs_world2pix(ra * u.rad.to(u.deg), dec * u.rad.to(u.deg), 0) for image, ra, dec in zip(self.images, ras, decs)]
+        xs, ys = np.array(xys).T
 
         Nx = int(max(xs) - min(xs)) + ref_x_size + 10 # add 10 pixels to be safe
         Ny = int(max(ys) - min(ys)) + ref_y_size + 10 # add 10 pixels to be safe
